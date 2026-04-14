@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="shortcut icon" href="../images/mp.png">
+</head>
+<body>
+    <div class="event-login-container">
+        <!-- PARTIE GAUCHE - PERSONNAGES INTERACTIFS -->
+        <div class="characters-showcase">
+            <!-- CARROUSEL DE PHRASES NEUTRES -->
+            <div class="phrase-carousel">
+                <div class="phrase-item active" id="phrase1">
+                    <div class="phrase-main"> Bienvenue sur <span>EventHub</span> </div>
+                    <div class="phrase-sub">
+                        <i class="fas fa-calendar"></i>
+                        Plateforme événements étudiants
+                    </div>
+                </div>
+                <div class="phrase-item" id="phrase2">
+                    <div class="phrase-main">
+                        Découvre
+                        <span>les événements</span>
+                    </div>
+                    <div class="phrase-sub">
+                        <i class="fas fa-search"></i>
+                        Hackathons, Conférences, Ateliers
+                    </div>
+                </div>
+                <div class="phrase-item" id="phrase3">
+                    <div class="phrase-main">
+                        Connecte-toi
+                        <span>pour participer</span>
+                    </div>
+                    <div class="phrase-sub">
+                        <i class="fas fa-user-plus"></i>
+                        Rejoins la communauté
+                    </div>
+                </div>
+                
+                <div class="phrase-item" id="phrase4">
+                    <div class="phrase-main">
+                        Reste informé
+                        <span>des prochains events</span>
+                    </div>
+                    <div class="phrase-sub">
+                        <i class="fas fa-bell"></i>
+                        Reçois les notifications
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone des notifications -->
+            <div id="notificationArea"></div>
+
+            <!-- Scène de personnages -->
+            <div class="character-scene">
+                <!-- Personnage principal - Assistant Étudiant -->
+                <div class="main-character" id="mainCharacter">
+                    <div class="character-face">
+                        <div class="character-eyes">
+                            <div class="eye" id="leftEye"></div>
+                            <div class="eye" id="rightEye"></div>
+                        </div>
+                        <div class="character-smile" id="characterSmile"></div>
+                    </div>
+                    <div class="character-message" id="characterMessage">
+                        Salut !
+                    </div>
+                </div>
+
+                <!-- Petits personnages - ÉVÉNEMENTS ACADÉMIQUES -->
+                <div class="small-character char-1">
+                    <i class="fas fa-laptop-code"></i>
+                    <div class="speech-bubble bubble-1">Hackathon ce week-end !</div>
+                </div>
+                <div class="small-character char-2">
+                    <i class="fas fa-microphone-alt"></i>
+                    <div class="speech-bubble bubble-2">Conférence IA demain</div>
+                </div>
+                <div class="small-character char-3">
+                    <i class="fas fa-flask"></i>
+                    <div class="speech-bubble bubble-3">Atelier labo</div>
+                </div>
+                <div class="small-character char-4">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="speech-bubble bubble-4">Forum entreprises</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARTIE DROITE - FORMULAIRE CLAIR -->
+        <div class="login-section">
+            <div class="logo">
+                <div class="logo-text">Event<span>Hub</span></div>
+            </div>
+
+            <div class="login-title">
+                <h2>Content de te revoir !</h2>
+                <p>
+                    <i class="fas fa-circle-check" style="color: #ffd166;"></i>
+                    Connecte-toi pour ne rien rater
+                </p>
+            </div>
+            <form id="loginForm" action="../auth/connexion.php" method="POST">
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email"placeholder="anna@etudiant.com" value="anna@etudiant.com">
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="form-group">
+                    <label class="form-label">Mot de passe</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" name="password" placeholder="••••••••">
+                    </div>
+                </div>
+               <div id="notification" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+                <!-- Options -->
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox">
+                        <span class="checkbox-custom"></span>
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+                </div>
+
+                <!-- Bouton connexion -->
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <i class="fas fa-arrow-right-to-bracket"></i>
+                    SE CONNECTER
+                </button>
+
+                <!-- Bouton Google -->
+                <button type="button" class="google-btn">
+                    <i class="fab fa-google"></i>
+                    CONTINUER AVEC GOOGLE
+                </button>
+
+                <!-- Lien inscription -->
+                <p class="signup-link">
+                    Pas encore de compte ? 
+                    <a href="../HTML/register.html">Inscris-toi vite !</a>
+                </p>
+            </form>
+        </div>
+    </div>
+<script src="../JS/login.js"></script>
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const error = urlParams.get('error');
+
+if (error === '2') {
+    const notif = document.getElementById('notification');
+    if (notif) {
+        notif.innerHTML = '<div style="background: #e74c3c; color: white; padding: 12px 20px; border-radius: 8px;">❌ Utilisateur inexistant</div>';
+         setTimeout(() => {
+            notif.innerHTML = '';
+        }, 3000);
+    }
+}
+if (error === '3') {
+    const notif = document.getElementById('notification');
+    if (notif) {
+        notif.innerHTML = '<div style="background: #e74c3c; color: white; padding: 12px 20px; border-radius: 8px;">❌ Mot de passe incorrect</div>';
+        setTimeout(() => {
+            notif.innerHTML = '';
+        }, 3000);
+    }
+}
+</script>
+</html>
+
+

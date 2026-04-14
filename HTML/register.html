@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/register.css">
+    <link rel="shortcut icon" href="../images/mp.png">
+</head>
+<body>
+    <div class="register-container">
+        <!-- Header-->
+        <div class="register-header">
+            <div class="logo-text">Event<span>Hub</span></div>
+        </div>
+        
+        <!-- Corps du formulaire -->
+        <div class="register-body">
+            <!-- ÉTAPE 1 -->
+            <div class="step-content active" id="step1">
+                <form id="step1Form" action="../auth/inscription.php" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Prénom</label>
+                            <div class="input-container">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="prenom" name="prenom" placeholder="Marie" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Nom</label>
+                            <div class="input-container">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="nom" name="nom" placeholder="Dubois" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Email</label>
+                            <div class="input-container">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" placeholder="marie@etudiant.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Filière</label>
+                            <div class="input-container">
+                                <i class="fas fa-graduation-cap input-icon"></i>
+                                <select id="filiere" name="filiere" required>
+                                    <option value="">Choisis ta filière</option>
+                                    <option value="informatique">Informatique</option>
+                                    <option value="electrique">Electrique</option>
+                                    <option value="mathematique">Mathématique</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Niveau</label>
+                            <div class="input-container">
+                                <i class="fas fa-layer-group input-icon"></i>
+                                <select id="niveau" name="niveau" required>
+                                    <option value="">Choisis ton niveau</option>
+                                    <option value="L1">Licence 1</option>
+                                    <option value="L2">Licence 2</option>
+                                    <option value="L3">Licence 3</option>
+                                    <option value="M1">Master 1</option>
+                                    <option value="M2">Master 2</option>
+                                    <option value="doctorat">Doctorat</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Mot de passe</label>
+                            <div class="input-container">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Confirmer</label>
+                            <div class="input-container">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ✅ BOUTON À L'INTÉRIEUR DU FORMULAIRE (après tous les inputs) -->
+                    <button class="btn-submit" id="submitBtn" type="submit">
+                        <i class="fas fa-rocket"></i>
+                        C'est parti !
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/register.js"></script>
+</body>
+</html>
